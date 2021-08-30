@@ -1,0 +1,50 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<div class="container">
+
+    @*<form class="form-group" method="post">
+        <input type="text" name="CategoryName" placeholder="Kategori Adı" class="form-control" />
+        @Html.ValidationMessageFor(x => x.CategoryName) <br />
+
+        <textarea class="form-control" name="CategoryDescription" rows="3"></textarea>
+        @Html.ValidationMessageFor(x => x.CategoryDescription) <br />
+
+        <select class="form-control" name="CategoryStatus">
+            <option value="True">Aktif</option>
+            <option value="False">Pasif</option>
+        </select> <br />
+
+        <button type="submit" class="btn btn-sm btn-success">Ekle</button>
+    </form>*@
+
+    @using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+        {
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName)
+        <br />
+
+        @Html.Label("Açıklamya Yazınız")
+        @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryDescription)
+        <br />
+
+        @Html.Label("Aktif")
+        @Html.CheckBoxFor(x => x.CategoryStatus)
+
+        @Html.Label("Pasif", new { @style = "margin-left:20px;" })
+        @Html.CheckBoxFor(x => x.CategoryStatus)
+
+        <br /> <br />
+
+        <button class="btn btn-sm btn-success">Kaydet</button>
+    </div>
+        }
+
+
+</div>

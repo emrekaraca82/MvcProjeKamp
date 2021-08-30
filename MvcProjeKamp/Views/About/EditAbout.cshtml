@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.About
+@{
+    ViewBag.Title = "EditAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditAbout", "About", FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.AboutID)
+    <div class="form-group">
+        @Html.Label("Hakkımızda 1")
+        @Html.TextBoxFor(x => x.AboutDetails1, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Hakkımızda 2")
+        @Html.TextBoxFor(x => x.AboutDetails2, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Image 1")
+        <input type="file" name="AboutImage1" class="form-control" />      
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Image 2")
+        <input type="file" name="AboutImage2"  class="form-control" />
+      
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}
+

@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Content
+@{
+    ViewBag.Title = "AddContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddContent", "WriterPanelContent", FormMethod.Post))
+{
+    <div class="form-group">
+        <input type="hidden" name="HeadingID" value="@ViewBag.d" />
+
+        @Html.Label("Başlık")
+        <textarea id="compose-textarea" name="ContentValue" class="form-control" style="height: 300px">
+        </textarea>
+    </div>
+
+    <button class="btn btn-sm btn-success">Kaydet</button>
+}
+
+<script>
+    $(function () {
+        //Add text editor
+        $('#compose-textarea').summernote()
+    })
+</script>
+

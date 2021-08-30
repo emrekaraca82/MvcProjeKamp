@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Slider
+@{
+    ViewBag.Title = "AddSlider";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddSlider", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.Label("Slider Adı")
+        @Html.TextBoxFor(x => x.SliderName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SliderName)
+        <br />
+
+        @Html.Label("Görsel")
+        <input type="file" name="SliderPath" class="form-control" />
+        @Html.ValidationMessageFor(x => x.SliderPath)
+        <br />
+
+        <button class="btn btn-sm btn-success">Kaydet</button>
+    </div>
+}
+
+
+
+
+
